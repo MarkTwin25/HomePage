@@ -9,9 +9,18 @@
     --secondary-background: beige;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
 body {
     min-height: 100vh;
     font-family: 'Playfair Display', 'Roboto';
+    background-color: var(--secondary-background);
 }
 
 header {
@@ -24,18 +33,22 @@ header {
 
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 20px;
 }
 
-.header-container {
+.container {
+    width: 100%;
     max-width: 1100px;
     display: flex;
     padding: 10px 25px;
+    margin: 0 auto;
 }
 
 header .img-section {
     max-width: 500px;
     position: relative;
+    z-index: 2;
 }
 img {
     width: 100%;
@@ -49,7 +62,8 @@ img {
     text-align: center;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 90%;
+    color: white;
 }
 
 /* About section */
@@ -65,14 +79,22 @@ img {
     gap: 15px;
     max-width: 700px;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+    font-family:
+        'Nunito', 'Roboto', sans-serif; /* Forzamos la tipografía moderna */
+    color: #333333;
 }
 
 .about .title {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    text-align: center; /* Esto es clave: centra el título horizontalmente */
+    font-weight: 400;
 }
 
 .about .paragraph {
     font-size: 1.1rem;
+    font-size: 1.1rem;
+    line-height: 1.6; /* Añade espacio vertical entre cada línea de texto */
+    text-align: left;
 }
 
 .links {
@@ -82,13 +104,208 @@ img {
     margin-top: auto;
 }
 
-.email-icon {
+.icon {
     width: 28px;
     height: 28px;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
-.email-icon:hover {
+.icon:hover {
     color: var(--header-background);
+}
+
+/* Projects section */
+
+main {
+    width: 100%;
+}
+main .container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container .work-title {
+    font-size: 2rem;
+}
+
+.container .projects {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.projects .project {
+    background-color: var(--secondary-background);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.project .img-project {
+    width: 100%;
+    aspect-ratio: 2/1;
+}
+
+.project .info {
+    padding: 5px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.info .icon {
+    width: 20px;
+    height: 20;
+}
+
+.project .description {
+    padding: 5px;
+}
+
+/* footer */
+footer {
+    background-color: var(--header-background);
+}
+
+footer .container {
+    display: flex;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+}
+
+.container .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    color: var(--secondary-background);
+}
+
+.contact .title {
+    text-align: start;
+    font-size: 2.5rem;
+}
+
+.contact .description,
+.contact .address {
+    font-size: 1.2rem;
+}
+
+.contact .media-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.media-contact .media {
+    display: flex;
+    gap: 15px;
+}
+
+.media .icon {
+    width: 28px;
+    height: 28px;
+    cursor: auto;
+    transition: color 0.3s ease;
+}
+
+.media .icon:hover {
+    color: white;
+}
+
+.img-footer {
+    max-width: 350px;
+}
+
+@media (max-width: 900px) {
+    header .container {
+        flex-direction: column;
+        position: relative;
+        padding-top: 10px;
+        align-items: center;
+    }
+
+    header .img-section {
+        position: static;
+        margin-right: auto;
+        width: 300px;
+        aspect-ratio: 1 / 1;
+    }
+
+    .img-section h1 {
+        top: 100px;
+        right: 25px;
+        bottom: auto;
+        left: auto;
+        text-align: right;
+        color: white;
+        font-size: 2.3rem;
+    }
+
+    .about {
+        margin-left: auto;
+        margin-top: -80px;
+        width: 95%;
+        padding-top: 40px;
+        padding-left: 120px;
+
+        .about .title {
+            text-align: right;
+        }
+    }
+
+    @media (max-width: 700px) {
+        header .container {
+            padding-top: 40px;
+        }
+
+        header .img-section {
+            margin-right: 0;
+            width: 100%;
+            position: relative;
+        }
+
+        .img-section h1 {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            top: auto;
+            right: auto;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 2.2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .about {
+            width: 100%;
+            margin-top: 0;
+            padding: 25px 20px;
+        }
+
+        .about .title {
+            text-align: center;
+        }
+
+        footer .container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container .contact {
+            align-items: center;
+        }
+
+        .img-footer {
+            height: 400px;
+            max-width: 100%;
+        }
+    }
 }
